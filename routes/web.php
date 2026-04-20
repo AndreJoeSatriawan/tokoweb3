@@ -104,9 +104,7 @@ Route::get('/rajaongkir-list2', function () {
     return $response->json();
 });
 
-Route::get('/cek-ongkir', function () {
-    return view('ongkir');
-});
+Route::get('/cek-ongkir', [RajaOngkirController::class, 'index']);
 Route::get('/provinces', [RajaOngkirController::class, 'getProvinces']);
-Route::get('/cities', [RajaOngkirController::class, 'getCities']);
+Route::get('/cities/{provinceId}', [RajaOngkirController::class, 'getCities']);
 Route::post('/cost', [RajaOngkirController::class, 'getCost']);
